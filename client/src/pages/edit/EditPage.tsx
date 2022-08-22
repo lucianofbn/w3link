@@ -1,4 +1,7 @@
 import './EditPage.css'
+import LinkCard from '../../components/linkcard/LinkCard'
+import SocialMediaCard from '../../components/socialmediacard/SocialMediaCard'
+import FloatButton from '../../components/fab/FloatButton'
 import copy_ic from '../../assets/images/copy-ic.svg'
 import logo from '../../assets/images/w3link-logo.svg'
 import logout_ic from '../../assets/images/logout-ic.svg'
@@ -11,13 +14,16 @@ import youtube_ic from '../../assets/images/youtube-ic.svg'
 import linkedin_ic from '../../assets/images/linkedin-ic.svg'
 import profile from '../../assets/images/profile.svg'
 import { Textarea, Button, } from "@material-tailwind/react";
-import LinkCard from '../../components/linkcard/LinkCard'
-import SocialMediaCard from '../../components/socialmediacard/SocialMediaCard'
-import FloatButton from '../../components/fab/FloatButton'
 import { injected, uauth, uauth2 } from '../../controller/udlogin/connectors';
 import { useWeb3React } from '@web3-react/core';
+import { useState } from 'react'
+
 
 function EditPage() {
+    const [form, setForm] = useState({});
+    const [links, setLinks] = useState({});
+    const [medias, setMedias] = useState({});
+    var username = localStorage.getItem("udlogin-domain");
     const { deactivate } = useWeb3React();
     return (
         <div>
@@ -26,7 +32,7 @@ function EditPage() {
                     <img className='logo' src={logo} alt='Logo'></img>
                 </a>
                 <div className='box-user'>
-                    <p>w3link.cypto</p>
+                    <p>w3link.crypto</p>
                     <a onClick={() => logout(deactivate)}>
                         <img src={logout_ic}></img>
                     </a>
@@ -39,7 +45,9 @@ function EditPage() {
                 </h1>
                 <div className='frame-url'>
                     <div className='box-url'>
-                        <p>w3link.vercel.app/w3link.crypto</p>
+                        <a target="_blank" href={"https://w3link.vercel.app/" + username?.replace(".", "-")}>
+                            <p>w3link.vercel.app/{username?.replace(".", "-")}</p>
+                        </a>
                         <img src={copy_ic}></img>
                     </div>
                 </div>
@@ -58,7 +66,7 @@ function EditPage() {
                             <Button color='gray' variant="outlined">Change</Button>
                         </div>
                         <div className='description'>
-                            <Textarea maxLength={120} label="Bio" />
+                            <Textarea id='bio' maxLength={120} label="Bio" onChange={(e) => handleOnChangeData(e, form, setForm, "bio")} />
                         </div>
                     </div>
                 </div>
@@ -72,13 +80,13 @@ function EditPage() {
                 </h1>
 
                 <div className='grid-socialmedias'>
-                    <SocialMediaCard label='E-mail' checked={false} icon={<img src={email_ic}></img>}></SocialMediaCard>
-                    <SocialMediaCard label='Twitter' checked={false} icon={<img src={twitter_ic}></img>}></SocialMediaCard>
-                    <SocialMediaCard label='Facebook' checked={false} icon={<img src={facebook_ic}></img>}></SocialMediaCard>
-                    <SocialMediaCard label='LinkedIn' checked={false} icon={<img src={linkedin_ic}></img>}></SocialMediaCard>
-                    <SocialMediaCard label='Instagram' checked={false} icon={<img src={instagram_ic}></img>}></SocialMediaCard>
-                    <SocialMediaCard label='Behance' checked={false} icon={<img src={behance_ic}></img>}></SocialMediaCard>
-                    <SocialMediaCard label='Youtube' checked={false} icon={<img src={youtube_ic}></img>}></SocialMediaCard>
+                    <SocialMediaCard label='E-mail' id={"email"} checked={true} icon={<img src={email_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
+                    <SocialMediaCard label='Twitter' id={"twitter"} checked={true} icon={<img src={twitter_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
+                    <SocialMediaCard label='Facebook' id={"facebook"} checked={true} icon={<img src={facebook_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
+                    <SocialMediaCard label='LinkedIn' id={"linkedin"} checked={true} icon={<img src={linkedin_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
+                    <SocialMediaCard label='Instagram' id={"instagram"} checked={true} icon={<img src={instagram_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
+                    <SocialMediaCard label='Behance' id={"behance"} checked={true} icon={<img src={behance_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
+                    <SocialMediaCard label='Youtube' id={"youtube"} checked={true} icon={<img src={youtube_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
                 </div>
             </section>
             <div className='divisor'></div>
@@ -87,14 +95,14 @@ function EditPage() {
                     Links
                 </h1>
                 <div className='grid-links'>
-                    <LinkCard id='link1' checked={false}></LinkCard>
-                    <LinkCard id='link2' checked={false}></LinkCard>
-                    <LinkCard id='link3' checked={false}></LinkCard>
-                    <LinkCard id='link4' checked={false}></LinkCard>
+                    <LinkCard id='link1' checked={true} changeLinks={changeLinks} setLinks={() => setLinks} links={links}></LinkCard>
+                    <LinkCard id='link2' checked={true} changeLinks={changeLinks} setLinks={() => setLinks} links={links}></LinkCard>
+                    <LinkCard id='link3' checked={true} changeLinks={changeLinks} setLinks={() => setLinks} links={links}></LinkCard>
+                    <LinkCard id='link4' checked={true} changeLinks={changeLinks} setLinks={() => setLinks} links={links}></LinkCard>
                 </div>
             </section>
 
-            <FloatButton></FloatButton>
+            <FloatButton links={links} form={form} medias={medias}></FloatButton>
 
         </div>
     )
@@ -107,6 +115,30 @@ function logout(deactivate: any) {
     uauth.deactivate();
     localStorage.clear();
     window.location.href = "/";
+}
+
+const handleOnChangeData = (e: any, functionValue: any, setFunction: any, prop: any) => {
+    console.log(e)
+    var currentValues = functionValue;
+    var propValue = e.target.value;
+    currentValues[prop] = propValue;
+    setFunction(currentValues);
+};
+
+function changeLinks(title: any, link: any, setFunction: any, prop: any, links: any) {
+    var currentValues = links;
+    var propValue = { "title": title, "link": link }
+    currentValues[prop] = propValue;
+    setFunction(currentValues);
+}
+
+function changeMedias(media: any, setFunction: any, prop: any, medias: any) {
+    var currentValues = medias;
+    var propValue = { "media": media }
+    console.log(currentValues)
+    console.log(propValue)
+    currentValues[prop] = propValue;
+    setFunction(currentValues);
 }
 
 export default EditPage

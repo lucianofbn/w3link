@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/edit" element={<EditPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/:username" element={<ProfilePage />} />
         </Routes>
       </Router>
     </Web3ReactProvider>

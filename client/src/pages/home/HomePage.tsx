@@ -41,7 +41,9 @@ function HomePage() {
       <section className='login'>
         <div className='box-login'>
           <h1>Login to Continue.</h1>
-          <UdLoginBt></UdLoginBt>
+          <div className='bt-login-frame'>
+            <UdLoginBt></UdLoginBt>
+          </div>
         </div>
       </section>
     </div>

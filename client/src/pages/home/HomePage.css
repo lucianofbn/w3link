@@ -43,7 +43,7 @@ nav{
     @apply sm:w-96;
 }
 
-.login a{
+.login .bt-login-frame{
     @apply flex justify-center 
 }
 

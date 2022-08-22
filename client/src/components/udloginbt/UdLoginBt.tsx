@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { injected, uauth, uauth2 } from "../../controller/udlogin/connectors";
 import { useWeb3React } from "@web3-react/core";
+import { createAccount } from "../../models/api";
 
 function UdLoginBt() {
     const { activate, deactivate } = useWeb3React();
@@ -9,50 +10,50 @@ function UdLoginBt() {
     fetchData(isConnected, setDomain, setIsConnected);
     const [udLoginState, setUdLoginState] = useState(0);
     return isConnected ? (
-        <div className="flex items-center text-center w-3/4">
-            <div className="absolute text-white text-center text-sm ml-24 pointer-events-none overflow-hidden whitespace-nowrap overflow-ellipsis w-36">{domain}</div>
-            <img
-                src={getUdLoginButtonLogged(udLoginState)}
-                onMouseOver={() => setUdLoginState(1)}
-                onMouseLeave={() => setUdLoginState(0)}
-                onMouseDown={() => setUdLoginState(2)}
-                onClick={() => logout(setIsConnected, setDomain, deactivate)}
-            />
+        //<div className="flex items-center text-center w-3/4">
+        // <div className="absolute text-white text-center text-sm ml-24 pointer-events-none overflow-hidden whitespace-nowrap overflow-ellipsis w-36">{domain}</div>
+        <img
+            src={getUdLoginButtonLogged(udLoginState)}
+            onMouseOver={() => setUdLoginState(1)}
+            onMouseLeave={() => setUdLoginState(0)}
+            onMouseDown={() => setUdLoginState(2)}
+            onClick={() => logout(setIsConnected, setDomain, deactivate)}
+        />
 
-        </div>
+        // </div>
     ) : (
-        <div className="flex items-center text-center w-3/4">
-            <img
-                src={getUdLoginButton(udLoginState)}
-                onMouseOver={() => setUdLoginState(1)}
-                onMouseLeave={() => setUdLoginState(0)}
-                onMouseDown={() => setUdLoginState(2)}
-                className={["ud-login"].join(" ")}
-                onClick={() => connectUnstoppable(activate)}
-            />
-        </div>
+        //<div className="flex items-center text-center w-3/4">
+        <img
+            src={getUdLoginButton(udLoginState)}
+            onMouseOver={() => setUdLoginState(1)}
+            onMouseLeave={() => setUdLoginState(0)}
+            onMouseDown={() => setUdLoginState(2)}
+            className={["ud-login"].join(" ")}
+            onClick={() => connectUnstoppable(activate)}
+        />
+        //</div>
     );
 }
 
 function getUdLoginButton(state: number) {
     switch (state) {
         case 0:
-            return "/images/login/ud.png";
+            return "/images/login/default-large.svg";
         case 1:
-            return "/images/login/ud-hover.png";
+            return "/images/login/hover-large.svg";
         case 2:
-            return "/images/login/ud-pressed.png";
+            return "/images/login/pressed-large.svg";
     }
 }
 
 function getUdLoginButtonLogged(state: number) {
     switch (state) {
         case 0:
-            return "/images/login/ud-logged.png";
+            return "/images/login/loading-large.svg";
         case 1:
-            return "/images/login/ud-logged-hover.png";
+            return "/images/login/ud-logged-hover.svg";
         case 2:
-            return "/images/login/ud-logged-pressed.png";
+            return "/images/login/ud-logged-pressed.svg";
     }
 }
 
@@ -66,8 +67,10 @@ async function connectUnstoppable(activate: any) {
                 .then(() => {
                     uauth2.uauth.user().then((user) => {
                         localStorage.setItem("udlogin-domain", user.sub);
-                        /*myfunction(user.sub).then(() => {});*/
-                        window.location.href = "/edit";
+                        //myfunction(user.sub).then(() => {});
+                        createAccount({ "username": user.sub }).then(() => {
+                            window.location.href = "/edit";
+                        })
                     });
                 })
                 .catch((e) => {
