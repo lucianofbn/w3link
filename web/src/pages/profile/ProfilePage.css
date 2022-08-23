@@ -1,0 +1,78 @@
+/* user-profile */
+.user-profile{
+    @apply flex justify-center items-center my-8 mx-4
+}
+
+.frame-user-profile {
+    @apply flex-col
+}
+
+.user-profile .frame-profile-img{
+    @apply flex w-full justify-center items-center
+}
+
+.user-profile .frame-user-profile img{
+    @apply flex w-48 mx-4 mt-8 mb-4 justify-center items-center
+}
+
+.user-profile .frame-profile-username{
+    @apply flex justify-center
+}
+
+.user-profile .frame-profile-username p{
+    @apply text-2xl font-font-capriola text-center text-[#102D52]
+}
+
+.user-profile .frame-profile-bio {
+    @apply flex justify-center mx-4 mb-2 mt-2
+}
+
+.user-profile .frame-profile-bio p{
+    @apply text-sm break-all font-font-capriola text-center text-[#9CAFC2]
+}
+
+
+/* user-socialmedia */
+.user-socialmedia{
+    @apply flex flex-col justify-center items-center my-8 mx-4;
+    @apply lg:flex-row
+}
+
+.user-socialmedia .frame-profile-icons{
+    @apply flex justify-center items-center my-4
+}
+
+.user-socialmedia .frame-profile-icons img{
+    @apply flex w-7 mx-2 cursor-pointer
+}
+
+.user-socialmedia .box-email {
+    @apply flex py-2 px-8  justify-center items-center bg-[#fff] rounded-md border-2 border-[#F0F6FD];
+    @apply lg:mr-6
+}
+
+.user-socialmedia .box-email img{
+    @apply flex w-4 mx-2
+}
+    
+.user-socialmedia .box-email p{
+    @apply flex text-[#9CAFC2] font-font-blinker cursor-pointer
+}
+
+
+/* bt-links */
+.bt-links{
+    @apply flex flex-col m-4 justify-center items-center;
+    @apply lg:flex-row
+}
+
+.bt-links .bt{
+    @apply flex w-full my-4;
+    @apply lg:mx-4;  
+}
+
+
+/* Footer */
+.footer{
+    @apply flex justify-center mt-16 mx-4 mb-8;
+}
