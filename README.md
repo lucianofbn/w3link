@@ -71,5 +71,5 @@ Person of contact in case there are any questions
 | Contact | Luciano Ferreira |
 | ------ | ------ |
 | Discord | lucianofbn#3226 |
-| Contact Email | lfbnwork@gmail.com |
+| Email | lfbnwork@gmail.com |
 
