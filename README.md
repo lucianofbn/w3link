@@ -9,7 +9,7 @@ W3Link is an easy way to have a profile with custom links on the web 3.
 
 ## 📋 Contents
 - [Why?](#why?)
-- [Video Demo](#video-demo?)
+- [Video Demo](#video-demo)
 - [Installation](#installation)
 - [Public Repository](#public-repository)
 - [Upgrading](#upgrading)
@@ -24,8 +24,6 @@ W3Link is an easy way to have a profile with custom links on the web 3.
 Click to access our video-demo.
 
 [![Video Demo](http://img.youtube.com/vi/FcoUvu0mGog/0.jpg)](https://www.youtube.com/watch?v=FcoUvu0mGog)
-
-https://www.youtube.com/watch?v=FcoUvu0mGog
 
 ## Installation
 
