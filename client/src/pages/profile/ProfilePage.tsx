@@ -132,18 +132,26 @@ function ProfilePage() {
             </section>
 
             <section className='bt-links'>
-                <div className='bt'>
-                    {userprofile.title1 === "" ? "" : <Button id='bt1' onClick={() => window.open(userprofile.link1!, '_blank')} color='blue' size="lg" fullWidth={true} variant="gradient">{userprofile.title1!}</Button>}
-                </div>
-                <div className='bt'>
-                    {userprofile.title2 === "" ? "" : <Button id='bt2' onClick={() => window.open(userprofile.link2!, '_blank')} color='blue' size="lg" fullWidth={true} variant="gradient">{userprofile.title2!}</Button>}
-                </div>
-                <div className='bt'>
-                    {userprofile.title3 === "" ? "" : <Button id='bt3' onClick={() => window.open(userprofile.link3!, '_blank')} color='blue' size="lg" fullWidth={true} variant="gradient">{userprofile.title3!}</Button>}
-                </div>
-                <div className='bt'>
-                    {userprofile.title4 === "" ? "" : <Button id='bt4' onClick={() => window.open(userprofile.link4!, '_blank')} color='blue' size="lg" fullWidth={true} variant="gradient">{userprofile.title4!}</Button>}
-                </div>
+                {userprofile.title1 === "" ? "" :
+                    <div className='bt'>
+                        <Button id='bt1' onClick={() => window.open(userprofile.link1!, '_blank')} color='blue' size="lg" fullWidth={true} variant="gradient">{userprofile.title1!}</Button>
+                    </div>}
+
+                {userprofile.title2 === "" ? "" :
+                    <div className='bt'>
+                        <Button id='bt2' onClick={() => window.open(userprofile.link2!, '_blank')} color='blue' size="lg" fullWidth={true} variant="gradient">{userprofile.title2!}</Button>
+                    </div>
+                }
+
+                {userprofile.title3 === "" ? "" :
+                    <div className='bt'>
+                        <Button id='bt3' onClick={() => window.open(userprofile.link3!, '_blank')} color='blue' size="lg" fullWidth={true} variant="gradient">{userprofile.title3!}</Button>
+                    </div>}
+
+                {userprofile.title4 === "" ? "" :
+                    <div className='bt'>
+                        <Button id='bt4' onClick={() => window.open(userprofile.link4!, '_blank')} color='blue' size="lg" fullWidth={true} variant="gradient">{userprofile.title4!}</Button>
+                    </div>}
             </section>
 
             <div className='bottom-body'>
