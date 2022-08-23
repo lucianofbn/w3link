@@ -55,7 +55,7 @@ npm run dev
 
 ## Public Repository
 Click to access our repository.
-| W3Link | Link |
+| W3Link | GitHub |
 | ------ | ------ |
 | Public Repo | https://github.com/lucianofbn/w3link |
 
