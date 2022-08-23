@@ -1,6 +1,6 @@
 /* nav */
 .box-user{
-    @apply flex m-4 p-2  rounded-full bg-[#fff] justify-between items-center shadow-md
+    @apply flex m-4 p-2  rounded-lg bg-[#fff] justify-between items-center shadow-md
 }
 
 .box-user p{
@@ -19,12 +19,12 @@
 }
 
 .url .box-url{
-    @apply flex w-full p-4 justify-center rounded-full bg-[#fff] shadow-md;
+    @apply flex w-full p-4 justify-center rounded-xl bg-[#fff] shadow-md;
     @apply xl:w-1/2
 }
 
 .url h1{
-    @apply m-4 font-font-blinker text-center text-[#102D52];
+    @apply mt-8 mb-8 font-font-blinker text-center text-[#102D52];
 }
 
 .url p{
@@ -39,7 +39,7 @@
 
 /* edit-profile */
 .edit-profile h1{
-    @apply my-4 font-font-blinker text-center text-[#102D52];
+    @apply mt-12 mb-8 font-font-blinker text-center text-[#102D52];
 }
 
 .edit-profile .frame-profile{
@@ -65,7 +65,7 @@
 
 /* socialmedias */
 .socialmedias h1{
-    @apply my-4 font-font-blinker text-center text-[#102D52];
+    @apply mt-12 mb-8 font-font-blinker text-center text-[#102D52];
 }
 
 .socialmedias .grid-socialmedias{
@@ -76,11 +76,11 @@
 
 /* links */
 .links h1{
-    @apply my-4 font-font-blinker text-center text-[#102D52];
+    @apply mt-12 mb-8 font-font-blinker text-center text-[#102D52];
 }
 
 .links .grid-links{
-    @apply grid m-4 mb-8 gap-4 grid-cols-1;
+    @apply grid m-4 mb-12 gap-4 grid-cols-1;
     @apply xl:w-3/6 xl:grid-cols-2 xl:mx-auto
 }
 

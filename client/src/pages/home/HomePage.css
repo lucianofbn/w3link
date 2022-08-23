@@ -44,7 +44,7 @@ nav{
 }
 
 .login .bt-login-frame{
-    @apply flex justify-center 
+    @apply flex justify-center cursor-pointer
 }
 
 .login .box-login h1{

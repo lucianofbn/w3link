@@ -32,76 +32,74 @@ function EditPage() {
                     <img className='logo' src={logo} alt='Logo'></img>
                 </a>
                 <div className='box-user'>
-                    <p>w3link.crypto</p>
+                    <p>{username}</p>
                     <a onClick={() => logout(deactivate)}>
                         <img src={logout_ic}></img>
                     </a>
                 </div>
             </nav>
 
-            <section className='url'>
-                <h1>
-                    My W3Link
-                </h1>
-                <div className='frame-url'>
-                    <div className='box-url'>
-                        <a target="_blank" href={"https://w3link.vercel.app/" + username?.replace(".", "-")}>
-                            <p>w3link.vercel.app/{username?.replace(".", "-")}</p>
-                        </a>
-                        <img src={copy_ic}></img>
-                    </div>
-                </div>
-            </section>
+            <div className='edit-page'>
 
-            <div className='divisor'></div>
-
-            <section className='edit-profile'>
-                <h1>
-                    Profile
-                </h1>
-                <div className='frame-profile'>
-                    <div className='box-profile'>
-                        <div className='profile-image'>
-                            <img src={profile} alt='Image Profile'></img>
-                            <Button color='gray' variant="outlined">Change</Button>
-                        </div>
-                        <div className='description'>
-                            <Textarea id='bio' maxLength={120} label="Bio" onChange={(e) => handleOnChangeData(e, form, setForm, "bio")} />
+                <section className='url'>
+                    <h1>
+                        My W3Link
+                    </h1>
+                    <div className='frame-url'>
+                        <div className='box-url'>
+                            <a target="_blank" href={"https://w3link.vercel.app/" + username?.replace(".", "-")}>
+                                <p>w3link.vercel.app/{username?.replace(".", "-")}</p>
+                            </a>
+                            <img src={copy_ic}></img>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <div className='divisor'></div>
+                <section className='edit-profile'>
+                    <h1>
+                        Profile
+                    </h1>
+                    <div className='frame-profile'>
+                        <div className='box-profile'>
+                            <div className='profile-image'>
+                                <img src={profile} alt='Image Profile'></img>
+                                <Button color='gray' variant="outlined">Change</Button>
+                            </div>
+                            <div className='description'>
+                                <Textarea id='bio' maxLength={120} label="Bio" onChange={(e) => handleOnChangeData(e, form, setForm, "bio")} />
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-            <section className='socialmedias'>
-                <h1>
-                    Social Medias
-                </h1>
+                <section className='socialmedias'>
+                    <h1>
+                        Social Medias
+                    </h1>
 
-                <div className='grid-socialmedias'>
-                    <SocialMediaCard label='E-mail' id={"email"} checked={true} icon={<img src={email_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
-                    <SocialMediaCard label='Twitter' id={"twitter"} checked={true} icon={<img src={twitter_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
-                    <SocialMediaCard label='Facebook' id={"facebook"} checked={true} icon={<img src={facebook_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
-                    <SocialMediaCard label='LinkedIn' id={"linkedin"} checked={true} icon={<img src={linkedin_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
-                    <SocialMediaCard label='Instagram' id={"instagram"} checked={true} icon={<img src={instagram_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
-                    <SocialMediaCard label='Behance' id={"behance"} checked={true} icon={<img src={behance_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
-                    <SocialMediaCard label='Youtube' id={"youtube"} checked={true} icon={<img src={youtube_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
-                </div>
-            </section>
-            <div className='divisor'></div>
-            <section className='links'>
-                <h1>
-                    Links
-                </h1>
-                <div className='grid-links'>
-                    <LinkCard id='link1' checked={true} changeLinks={changeLinks} setLinks={() => setLinks} links={links}></LinkCard>
-                    <LinkCard id='link2' checked={true} changeLinks={changeLinks} setLinks={() => setLinks} links={links}></LinkCard>
-                    <LinkCard id='link3' checked={true} changeLinks={changeLinks} setLinks={() => setLinks} links={links}></LinkCard>
-                    <LinkCard id='link4' checked={true} changeLinks={changeLinks} setLinks={() => setLinks} links={links}></LinkCard>
-                </div>
-            </section>
+                    <div className='grid-socialmedias'>
+                        <SocialMediaCard label='E-mail' id={"email"} checked={true} icon={<img src={email_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
+                        <SocialMediaCard label='Twitter' id={"twitter"} checked={true} icon={<img src={twitter_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
+                        <SocialMediaCard label='Facebook' id={"facebook"} checked={true} icon={<img src={facebook_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
+                        <SocialMediaCard label='LinkedIn' id={"linkedin"} checked={true} icon={<img src={linkedin_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
+                        <SocialMediaCard label='Instagram' id={"instagram"} checked={true} icon={<img src={instagram_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
+                        <SocialMediaCard label='Behance' id={"behance"} checked={true} icon={<img src={behance_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
+                        <SocialMediaCard label='Youtube' id={"youtube"} checked={true} icon={<img src={youtube_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
+                    </div>
+                </section>
 
+                <section className='links'>
+                    <h1>
+                        Links
+                    </h1>
+                    <div className='grid-links'>
+                        <LinkCard id='link1' checked={true} changeLinks={changeLinks} setLinks={() => setLinks} links={links}></LinkCard>
+                        <LinkCard id='link2' checked={true} changeLinks={changeLinks} setLinks={() => setLinks} links={links}></LinkCard>
+                        <LinkCard id='link3' checked={true} changeLinks={changeLinks} setLinks={() => setLinks} links={links}></LinkCard>
+                        <LinkCard id='link4' checked={true} changeLinks={changeLinks} setLinks={() => setLinks} links={links}></LinkCard>
+                    </div>
+                </section>
+            </div>
             <FloatButton links={links} form={form} medias={medias}></FloatButton>
 
         </div>

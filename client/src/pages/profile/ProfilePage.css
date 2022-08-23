@@ -1,31 +1,18 @@
-/* page controller */
-.full-profile-page{
-    @apply flex justify-center
-}
-
-.profile-page{
-    @apply flex-col justify-between
-}
-
-.top-body{
-    @apply flex-col
-}
-
-.bottom-body{
-    @apply flex justify-center
-}
-
 /* user-profile */
+.user-profile{
+    @apply flex justify-center my-8 mx-4
+}
+
 .frame-user-profile {
     @apply flex-col
 }
 
 .user-profile .frame-profile-img{
-    @apply flex justify-center
+    @apply flex w-full justify-center items-center
 }
 
 .user-profile .frame-user-profile img{
-    @apply w-48 mx-4 mt-8 mb-4
+    @apply flex w-48 mx-4 mt-8 mb-4 justify-center items-center
 }
 
 .user-profile .frame-profile-username{
@@ -37,7 +24,7 @@
 }
 
 .user-profile .frame-profile-bio {
-    @apply flex justify-center mx-4 my-2
+    @apply flex justify-center mx-4 mb-2
 }
 
 .user-profile .frame-profile-bio p{
@@ -47,28 +34,21 @@
 
 /* user-socialmedia */
 .user-socialmedia{
-    @apply flex justify-around
-}
-
-.user-socialmedia .frame-mail-icons{
-    @apply flex w-full justify-around
-}
-
-.user-socialmedia .grid-mail-icons{
-    @apply w-full grid m-4 gap-4 grid-cols-1 items-center;
-    @apply xl:grid-cols-2 
+    @apply flex flex-col justify-center my-8 mx-4;
+    @apply lg:flex-row
 }
 
 .user-socialmedia .frame-profile-icons{
-    @apply flex justify-center
+    @apply flex justify-center items-center my-4
 }
 
 .user-socialmedia .frame-profile-icons img{
-    @apply w-7 mx-2
+    @apply flex w-7 mx-2 cursor-pointer
 }
 
 .user-socialmedia .box-email {
-    @apply flex justify-center bg-[#fff] items-center p-2 rounded-md border-2 border-[#F0F6FD]
+    @apply flex py-2 px-8  justify-center items-center bg-[#fff] rounded-md border-2 border-[#F0F6FD];
+    @apply lg:mr-6
 }
 
 .user-socialmedia .box-email img{
@@ -76,22 +56,22 @@
 }
     
 .user-socialmedia .box-email p{
-    @apply flex text-[#9CAFC2] mx-1 font-font-blinker
+    @apply flex text-[#9CAFC2] font-font-blinker cursor-pointer
 }
 
 
 /* bt-links */
 .bt-links{
-    @apply flex justify-center
+    @apply flex flex-col m-4 justify-center;
+    @apply lg:flex-row
 }
 
-.bt-links .grid-buttons{
-    @apply w-full grid m-4 gap-4 grid-cols-1 items-center;
-    @apply xl:grid-cols-4 
+.bt-links .bt{
+    @apply flex w-full my-4;
+    @apply lg:mx-4;  
 }
-
 
 /* Footer */
 .footer{
-    @apply flex justify-center
+    @apply flex justify-center mt-16 mx-4 mb-8;
 }

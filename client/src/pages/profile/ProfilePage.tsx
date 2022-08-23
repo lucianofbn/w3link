@@ -45,35 +45,47 @@ function getDictData(dict: any, path: string): string {
     return dict
 }
 
+function getDictDataWithHttp(dict: any, path: string): string {
+    var dict: any = getDictData(dict, path)
+    if (dict.toString().startsWith("http") || (dict === "")) {
+    } else {
+        dict = "http://" + dict
+    }
+    return dict
+}
+
+
+
 function ProfilePage() {
     const [profile, setProfile] = useState(undefined)
 
     let userprofile: Profile = {}
     if (profile !== undefined) {
         //bio
-        userprofile.bio = profile["bio"]
+        userprofile.bio = getDictData(profile, 'bio')
+        //userprofile.bio = profile["bio"]
 
         //socialmedias
-        userprofile.behance = getDictData(profile, 'medias/behance/media')
+        userprofile.behance = getDictDataWithHttp(profile, 'medias/behance/media')
         userprofile.email = getDictData(profile, 'medias/email/media')
-        userprofile.facebook = getDictData(profile, 'medias/facebook/media')
-        userprofile.instagram = getDictData(profile, 'medias/instagram/media')
-        userprofile.linkedin = getDictData(profile, 'medias/linkedin/media')
-        userprofile.twitter = getDictData(profile, 'medias/twitter/media')
-        userprofile.youtube = getDictData(profile, 'medias/youtube/media')
+        userprofile.facebook = getDictDataWithHttp(profile, 'medias/facebook/media')
+        userprofile.instagram = getDictDataWithHttp(profile, 'medias/instagram/media')
+        userprofile.linkedin = getDictDataWithHttp(profile, 'medias/linkedin/media')
+        userprofile.twitter = getDictDataWithHttp(profile, 'medias/twitter/media')
+        userprofile.youtube = getDictDataWithHttp(profile, 'medias/youtube/media')
 
         //links
-        userprofile.title1 = getDictData(profile, 'links/link1/link')
-        userprofile.link1 = getDictData(profile, 'links/link1/link')
+        userprofile.title1 = getDictData(profile, 'links/link1/title')
+        userprofile.link1 = getDictDataWithHttp(profile, 'links/link1/link')
 
-        userprofile.title2 = getDictData(profile, 'links/link1/link')
-        userprofile.link2 = getDictData(profile, 'links/link2/link')
+        userprofile.title2 = getDictData(profile, 'links/link2/title')
+        userprofile.link2 = getDictDataWithHttp(profile, 'links/link2/link')
 
-        userprofile.title3 = getDictData(profile, 'links/link1/link')
-        userprofile.link3 = getDictData(profile, 'links/link3/link')
+        userprofile.title3 = getDictData(profile, 'links/link3/title')
+        userprofile.link3 = getDictDataWithHttp(profile, 'links/link3/link')
 
-        userprofile.title4 = getDictData(profile, 'links/link4/link')
-        userprofile.link4 = getDictData(profile, 'links/link1/link')
+        userprofile.title4 = getDictData(profile, 'links/link4/title')
+        userprofile.link4 = getDictDataWithHttp(profile, 'links/link4/link')
     }
 
     let { username } = useParams();
@@ -84,56 +96,63 @@ function ProfilePage() {
     }, []);
 
     return (
-        <div className='full-profile-page'>
-            <div className='profile-page'>
-                <div className='top-body'>
-                    <section className='user-profile'>
-                        <div className='frame-user-profile'>
-                            <div className='frame-profile-img'>
-                                <img src={profile_ic} alt='user profile image'></img>
-                            </div>
-                            <div className='frame-profile-username'>
-                                <p>{username === undefined ? "" : username}</p>
-                            </div>
-                            <div className='frame-profile-bio'>
-                                <p>{profile === undefined ? "" : profile["bio"]}</p>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section className='user-socialmedia'>
-                        <div className='grid-mail-icons'>
-                            <div className='box-email'>
-                                <img src={email_ic} alt='email'></img>
-                                <p>{userprofile.email}</p>
-                            </div>
-                            <div className='frame-profile-icons'>
-                                <img onClick={() => window.location.replace(userprofile.twitter!)} src={twitter_ic} alt='twitter'></img>
-                                <img src={instagram_ic} alt='instagram'></img>
-                                <img src={facebook_ic} alt='facebook'></img>
-                                <img src={behance_ic} alt='behance'></img>
-                                <img src={youtube_ic} alt='youtube'></img>
-                                <img src={linkedin_ic} alt='linkedin'></img>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section className='bt-links'>
-                        <div className='grid-buttons'>
-                            <Button onClick={() => window.location.replace(userprofile.link1!)} color='blue' size="lg" variant="gradient">{userprofile.title1!}</Button>
-                            <Button onClick={() => window.location.replace(userprofile.link2!)} color='blue' size="lg" variant="gradient">{userprofile.title2!}</Button>
-                            <Button onClick={() => window.location.replace(userprofile.link3!)} color='blue' size="lg" variant="gradient">{userprofile.title3!}</Button>
-                            <Button onClick={() => window.location.replace(userprofile.link4!)} color='blue' size="lg" variant="gradient">{userprofile.title4!}</Button>
-                        </div>
-                    </section>
+        <div>
+            <section className='user-profile'>
+                <div className='frame-user-profile'>
+                    <div className='frame-profile-img'>
+                        <img src={profile_ic} alt='user profile image'></img>
+                    </div>
+                    <div className='frame-profile-username'>
+                        <p>{username === undefined ? "" : username}</p>
+                    </div>
+                    {userprofile.bio === "" ? "" : <div className='frame-profile-bio'>
+                        <p>{userprofile.bio}</p>
+                    </div>
+                    }
                 </div>
-                <div className='bottom-body'>
-                    <section className='footer'>
-                        <img className='logo' src={logo} alt='W3link'></img>
-                    </section>
+            </section>
+
+            <section className='user-socialmedia'>
+                {userprofile.email === "" ? "" : <div className='box-email'>
+                    <img src={email_ic} alt='email'></img>
+                    <a onClick={() => window.location.replace("mailto:" + userprofile.email)}>
+                        <p>{userprofile.email}</p>
+                    </a>
+                </div>}
+
+                <div className='frame-profile-icons'>
+                    {userprofile.twitter === "" ? "" : <img src={twitter_ic} onClick={() => window.open(userprofile.twitter!, '_blank')} alt='twitter'></img>}
+                    {userprofile.instagram === "" ? "" : <img src={instagram_ic} onClick={() => window.open(userprofile.instagram!, '_blank')} alt='instagram'></img>}
+                    {userprofile.facebook === "" ? "" : <img src={facebook_ic} onClick={() => window.open(userprofile.facebook!, '_blank')} alt='facebook'></img>}
+                    {userprofile.behance === "" ? "" : <img src={behance_ic} onClick={() => window.open(userprofile.behance!, '_blank')} alt='behance'></img>}
+                    {userprofile.youtube === "" ? "" : <img src={youtube_ic} onClick={() => window.open(userprofile.youtube!, '_blank')} alt='youtube'></img>}
+                    {userprofile.linkedin === "" ? "" : <img src={linkedin_ic} onClick={() => window.open(userprofile.linkedin!, '_blank')} alt='linkedin'></img>}
                 </div>
+
+            </section>
+
+            <section className='bt-links'>
+                <div className='bt'>
+                    {userprofile.title1 === "" ? "" : <Button id='bt1' onClick={() => window.open(userprofile.link1!, '_blank')} color='blue' size="lg" fullWidth={true} variant="gradient">{userprofile.title1!}</Button>}
+                </div>
+                <div className='bt'>
+                    {userprofile.title2 === "" ? "" : <Button id='bt2' onClick={() => window.open(userprofile.link2!, '_blank')} color='blue' size="lg" fullWidth={true} variant="gradient">{userprofile.title2!}</Button>}
+                </div>
+                <div className='bt'>
+                    {userprofile.title3 === "" ? "" : <Button id='bt3' onClick={() => window.open(userprofile.link3!, '_blank')} color='blue' size="lg" fullWidth={true} variant="gradient">{userprofile.title3!}</Button>}
+                </div>
+                <div className='bt'>
+                    {userprofile.title4 === "" ? "" : <Button id='bt4' onClick={() => window.open(userprofile.link4!, '_blank')} color='blue' size="lg" fullWidth={true} variant="gradient">{userprofile.title4!}</Button>}
+                </div>
+            </section>
+
+            <div className='bottom-body'>
+                <section className='footer'>
+                    <img className='logo' src={logo} alt='W3link'></img>
+                </section>
             </div>
         </div>
+
     )
 }
 
@@ -146,6 +165,5 @@ function fetchProfile(username: string, setProfile: any) {
 function redirectMedia(url: string) {
 
 }
-
 
 export default ProfilePage
