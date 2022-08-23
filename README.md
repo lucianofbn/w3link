@@ -60,8 +60,11 @@ Click to access our repository.
 | Public Repo | https://github.com/lucianofbn/w3link |
 
 ## Upgrading
+- add discord and whatsapp
+- switch controls
 - Add more customizable layouts
 - Fetch profile data on the edit page
+
 
 ## Contact 
 Person of contact in case there are any questions 
