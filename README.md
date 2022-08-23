@@ -1,4 +1,4 @@
-# Gen**Sound**
+# W3**Link**
 ## _Discover Music with 1-Click_
 
 [![N|GenSound](https://imgur.com/CeFh0Uk.png)](https://gensound.vercel.app)
