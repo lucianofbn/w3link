@@ -8,7 +8,7 @@ W3Link is an easy way to have a profile with custom links on the web 3.
 - https://w3link.vercel.app/
 
 ## 📋 Contents
-- [Why?](#why?)
+- [Why](#why)
 - [Video Demo](#video-demo)
 - [Installation](#installation)
 - [Public Repository](#public-repository)
