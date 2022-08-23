@@ -5,6 +5,7 @@ import instagram_ic from '../../assets/images/instagram-ic.svg'
 import facebook_ic from '../../assets/images/facebook-ic.svg'
 import logo from '../../assets/images/w3link-logo.svg'
 import email_ic from '../../assets/images/email-ic.svg'
+import github_ic from '../../assets/images/github-ic.svg'
 import behance_ic from '../../assets/images/behance-ic.svg'
 import youtube_ic from '../../assets/images/youtube-ic.svg'
 import linkedin_ic from '../../assets/images/linkedin-ic.svg'
@@ -22,6 +23,7 @@ interface Profile {
     linkedin?: string
     twitter?: string
     youtube?: string
+    github?: string
     link1?: string
     link2?: string
     link3?: string
@@ -54,8 +56,6 @@ function getDictDataWithHttp(dict: any, path: string): string {
     return dict
 }
 
-
-
 function ProfilePage() {
     const [profile, setProfile] = useState(undefined)
 
@@ -63,7 +63,6 @@ function ProfilePage() {
     if (profile !== undefined) {
         //bio
         userprofile.bio = getDictData(profile, 'bio')
-        //userprofile.bio = profile["bio"]
 
         //socialmedias
         userprofile.behance = getDictDataWithHttp(profile, 'medias/behance/media')
@@ -73,6 +72,7 @@ function ProfilePage() {
         userprofile.linkedin = getDictDataWithHttp(profile, 'medias/linkedin/media')
         userprofile.twitter = getDictDataWithHttp(profile, 'medias/twitter/media')
         userprofile.youtube = getDictDataWithHttp(profile, 'medias/youtube/media')
+        userprofile.github = getDictDataWithHttp(profile, 'medias/github/media')
 
         //links
         userprofile.title1 = getDictData(profile, 'links/link1/title')
@@ -127,6 +127,7 @@ function ProfilePage() {
                     {userprofile.behance === "" ? "" : <img src={behance_ic} onClick={() => window.open(userprofile.behance!, '_blank')} alt='behance'></img>}
                     {userprofile.youtube === "" ? "" : <img src={youtube_ic} onClick={() => window.open(userprofile.youtube!, '_blank')} alt='youtube'></img>}
                     {userprofile.linkedin === "" ? "" : <img src={linkedin_ic} onClick={() => window.open(userprofile.linkedin!, '_blank')} alt='linkedin'></img>}
+                    {userprofile.github === "" ? "" : <img src={github_ic} onClick={() => window.open(userprofile.github!, '_blank')} alt='github'></img>}
                 </div>
 
             </section>
@@ -168,10 +169,6 @@ function fetchProfile(username: string, setProfile: any) {
     getData({ "username": username.replace("-", ".") }).then((result) => {
         setProfile(result);
     })
-}
-
-function redirectMedia(url: string) {
-
 }
 
 export default ProfilePage

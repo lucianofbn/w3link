@@ -12,6 +12,7 @@ import email_ic from '../../assets/images/email-ic.svg'
 import behance_ic from '../../assets/images/behance-ic.svg'
 import youtube_ic from '../../assets/images/youtube-ic.svg'
 import linkedin_ic from '../../assets/images/linkedin-ic.svg'
+import github_ic from '../../assets/images/github-ic.svg'
 import profile from '../../assets/images/profile.svg'
 import { Textarea, Button, } from "@material-tailwind/react";
 import { injected, uauth, uauth2 } from '../../controller/udlogin/connectors';
@@ -85,6 +86,7 @@ function EditPage() {
                         <SocialMediaCard label='Instagram' id={"instagram"} checked={true} icon={<img src={instagram_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
                         <SocialMediaCard label='Behance' id={"behance"} checked={true} icon={<img src={behance_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
                         <SocialMediaCard label='Youtube' id={"youtube"} checked={true} icon={<img src={youtube_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
+                        <SocialMediaCard label='Github' id={"github"} checked={true} icon={<img src={github_ic}></img>} changeMedias={changeMedias} setMedias={() => setMedias} medias={medias}></SocialMediaCard>
                     </div>
                 </section>
 

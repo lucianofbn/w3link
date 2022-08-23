@@ -71,6 +71,7 @@
     @apply lg:mx-4;  
 }
 
+
 /* Footer */
 .footer{
     @apply flex justify-center mt-16 mx-4 mb-8;
