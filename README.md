@@ -1,17 +1,15 @@
-# W3**Link**
-## _Discover Music with 1-Click_
+# W**3**Link.
+## _Everything about your web3 profile in one simple link_
 
-[![N|GenSound](https://imgur.com/CeFh0Uk.png)](https://gensound.vercel.app)
+[![N|W3Link](https://imgur.com/f67YEcC.png)](https://w3link.vercel.app)
 
-GenSound is an application capable of facilitating the user's search for 
-new bands or songs, in addition GenSound was designed to use the 
-resources that web 3.0 offers.
+W3Link is an easy way to have a profile with custom links on the web 3.
 
-- https://gensound.vercel.app/
+- https://w3link.vercel.app/
 
 ## 📋 Contents
 - [Why?](#why?)
-- [Video Demo](#video-demo)
+- [Video Demo](#video-demo?)
 - [Installation](#installation)
 - [Public Repository](#public-repository)
 - [Upgrading](#upgrading)
@@ -19,76 +17,58 @@ resources that web 3.0 offers.
 
 ## Why?
 
-- Difficulty that users have to get to know new bands or songs quickly, practically and efficiently;
-- There are still few web players located with a web 3.0;
-- Difficulties that bands at the beginning of their career have to publish their work in scale and with long reach;
-- Difficulty that bands has at the beginning of their careers to receive financial incentives (cryptocurrencies) from their supporters;
-- Difficulty or non-existence of platforms that allow the user to receive financial incentives in cryptocurrencies when listening to or supporting bands that participate in the platform. 
+- Difficulty quickly getting a customizable profile that is easy to share on the web3. 
 
 ## Video Demo
 
 Click to access our video-demo.
-| Video | Youtube |
-| ------ | ------ |
-| GenSound-demo | https://rumble.com/v1a8gzp-gensound.html |
+
+[![Video Demo](http://img.youtube.com/vi/FcoUvu0mGog/0.jpg)](https://www.youtube.com/watch?v=FcoUvu0mGog)
+
+https://www.youtube.com/watch?v=FcoUvu0mGog
 
 ## Installation
+
 **1 - Download the files**
 ```sh
-git clone https://github.com/lucianofbn/gensound
+git clone https://github.com/lucianofbn/w3link.git
 ```
 
 **2 - Create a new Firebase Project**
 - Before requesting the credentials, create a Realtime Firebase project
 - Add a new web app on firebase and get your credentials
-- Add the firebase credentials in a new 'config.json' file on "gensound/server/"
-
-**3 - Create a new Unstoppable Domains Client**
-
-- Register in https://dashboard.auth.unstoppabledomains.com/
-- Add the creadentials in a '.env' file on "gensound/.env" as follows:
+- Add the firebase credentials in a new '.env' file on "w3link/server/"  
  ```sh
-REACT_APP_UD_CLIENT_ID = ''
-REACT_APP_UD_REDIRECT_URI = ""
+FIREBASE_SERVICE_ACCOUNT_KEY=""
+```
+**3 - Create a new Unstoppable Domains Client**
+- Register in https://dashboard.auth.unstoppabledomains.com/
+- Add the creadentials in a '.env' file on "w3link/web/.env" as follows:
+ ```sh
+VITE_CLIENT_ID = ""  
+VITE_REDIRECT_URI = "" 
 ```
 
 **4 - Install and run the project**
  ```sh
 npm install
-npm start
+npm run dev
 ```
 
 ## Public Repository
 Click to access our repository.
-| GenSound | Link |
+| W3Link | Link |
 | ------ | ------ |
-| Public Repo | https://github.com/lucianofbn/gensound |
+| Public Repo | https://github.com/lucianofbn/w3link |
 
 ## Upgrading 🚀
-
-- Add favorites list
-- Allow multiple genres
-- Add more music genres
-- Improve the responsiveness of the website
-- Improve song selection function
-- Add genres based on user profile (AI)
-- Use blockchain to enable transactions between bands, listeners and supporters in a sustainable way. 
+- Add more customizable layouts
+- Fetch profile data on the edit page
 
 ## Contact 
-
 Person of contact in case there are any questions 
 | Contact | Luciano Ferreira |
 | ------ | ------ |
 | Discord | lucianofbn#3226 |
 | Contact Email | lfbnwork@gmail.com |
-
-| Contact | Rafael Souza | 
-| ------ | ------ |
-| Discord | Rafael Souza#2474 |
-| Contact Email | rafaelszcardoso@gmail.com |
-
-| Contact | Leandro Bernardini |
-| ------ | ------ |
-| Discord | Leandro#0775 |
-| Contact Email | lndrworks@gmail.com |
 
