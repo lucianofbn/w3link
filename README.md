@@ -59,7 +59,7 @@ Click to access our repository.
 | ------ | ------ |
 | Public Repo | https://github.com/lucianofbn/w3link |
 
-## Upgrading 🚀
+## Upgrading
 - Add more customizable layouts
 - Fetch profile data on the edit page
 
