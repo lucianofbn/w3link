@@ -48,8 +48,8 @@ function EditPage() {
                     </h1>
                     <div className='frame-url'>
                         <div className='box-url'>
-                            <a target="_blank" href={"https://w3link.vercel.app/" + username?.replace(".", "-")}>
-                                <p>w3link.vercel.app/{username?.replace(".", "-")}</p>
+                            <a target="_blank" href={"https://w3link.vercel.app/" + username}>
+                                <p>w3link.vercel.app/{username}</p>
                             </a>
                             <img src={copy_ic}></img>
                         </div>

@@ -166,7 +166,7 @@ function ProfilePage() {
 }
 
 function fetchProfile(username: string, setProfile: any) {
-    getData({ "username": username.replace("-", ".") }).then((result) => {
+    getData({ "username": username }).then((result) => {
         setProfile(result);
     })
 }
