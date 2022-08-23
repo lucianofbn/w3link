@@ -1,7 +1,7 @@
 # W**3**Link.
 ## _Everything about your web3 profile in one simple link_
 
-[![N|W3Link](https://imgur.com/Sfs6yGt.png)](https://w3link.vercel.app)
+[![N|W3Link](https://imgur.com/f67YEcC.png)](https://w3link.vercel.app)
 
 W3Link is an easy way to have a profile with custom links on the web 3.
 
